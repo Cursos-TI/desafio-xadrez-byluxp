@@ -6,31 +6,27 @@ int main () {
     int m = 1; // para casa inicial
 
     printf("Bem vindo ao jogo de xadrez!\n");
+    printf("\n"); // para pular uma linha e deixar organizado
 
     // Torre
-    while ( m <= c ) {
-        printf("A torre está na casa %d\n", m);
-        m++;
+    for ( m = 1; m <= c; m++ ) {
+        printf("A torre se moveu %d casa(s) para direita\n", m);
     }
+    printf("\n");
 
-    // Bispo 
-    m = 1; // resetando a casa inicial para 1
-    while ( m <= c ) {
-        printf("O bispo está na casa %d\n", m);
-        m++;
+    // Bispo
+    for ( m = 1; m <= c; m++ ) {
+        printf("O bispo se moveu %d casa(s) para a diagonal\n", m);
     }
+    printf("\n");
 
     // Rainha
     m = 1; // resetando a casa inicial para 1
-    do {
-        for (m = 1; m <= c; m++) {
-            printf("A rainha está na casa %d\n", m);
-        }
-        m = c + 1; // para sair do loop
+    for (m = 1; m <= 8; m++) {
+      printf("A rainha se moveu %d casa(s) para a esquerda\n", m);
+    }
+    printf("\n");
 
-    } while (m <= c);
-
-    
     // Cavalo ("L" pela movimentação em "L")
     for (int l = 1; l < 2; l++) {
         while ( l <= 2) {
@@ -40,7 +36,7 @@ int main () {
         printf("Cavalo foi para esquerda\n");
     }
 
-    printf("Movimentação concluída!\n");
+    printf("\nMovimentação concluída!\n");
 
     return 0;
 }
