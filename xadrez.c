@@ -30,6 +30,16 @@ int main () {
 
     } while (m <= c);
 
+    
+    // Cavalo ("L" pela movimentação em "L")
+    for (int l = 1; l < 2; l++) {
+        while ( l <= 2) {
+            printf("Cavalo foi para baixo\n");
+            l++;
+        }
+        printf("Cavalo foi para esquerda\n");
+    }
+
     printf("Movimentação concluída!\n");
 
     return 0;
