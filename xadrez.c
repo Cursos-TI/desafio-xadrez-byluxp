@@ -1,42 +1,57 @@
 #include <stdio.h>
 
-int main () {
+void movimentoTorre(int m) {
+        if (m <= 8) { // 8 casas = limite maximo de casas no xadrez
+            printf("A torre se moveu da casa %d para a casa %d à direita\n", m, m + 1);
+            movimentoTorre (m + 1);
+        }
+}
 
-    int c = 5; // para a quantidade de casas que eu quero movimentar
-    int m = 1; // para casa inicial
+
+void movimentoBispo(int b) {
+    for (int h = 1, v = 1; v <= 8 && h <= 8; v++, h++) {
+        printf("O bispo se moveu da casa %d,%d para a casa %d,%d na diagonal superior direita\n", v, h, v + 1, h + 1);
+    } // a linha de código executará o movimento diagonal, sendo v para vertical e h para horizontal. o movimento indicará
+        // de qual casa para qual casa o bispo se moveu
+
+}
+
+void movimentoRainha(int r) {
+        if (r <= 8) { // 8 casas = limite maximo de casas no xadrez
+            printf("A rainha se moveu da casa %d para a casa %d à esquerda\n", r, r + 1);
+            movimentoRainha(r + 1);
+        }
+ }
+
+void movimentoCavalo () {
+    for (int c = 1; c < 2; c++) {
+        while (c <= 2) {
+            printf("Cavalo foi para cima\n");
+            c++;
+        }
+        printf("Cavalo foi para direita\n");
+    }
+}
+
+int main () {
 
     printf("Bem vindo ao jogo de xadrez!\n");
     printf("\n"); // para pular uma linha e deixar organizado
 
     // Torre
-    for ( m = 1; m <= c; m++ ) {
-        printf("A torre se moveu %d casa(s) para direita\n", m);
-    }
+    movimentoTorre(1); // o numero 1 indica a casa inicial da torre
     printf("\n");
 
     // Bispo
-    for ( m = 1; m <= c; m++ ) {
-        printf("O bispo se moveu %d casa(s) para a diagonal\n", m);
-    }
+    movimentoBispo(1); // o numero 1 indica a casa inicial do bispo
     printf("\n");
 
     // Rainha
-    m = 1; // resetando a casa inicial para 1
-    for (m = 1; m <= 8; m++) {
-      printf("A rainha se moveu %d casa(s) para a esquerda\n", m);
-    }
+    movimentoRainha(1); // o numero 1 indica a casa inicial da rainha
     printf("\n");
 
-    // Cavalo ("L" pela movimentação em "L")
-    for (int l = 1; l < 2; l++) {
-        while ( l <= 2) {
-            printf("Cavalo foi para baixo\n");
-            l++;
-        }
-        printf("Cavalo foi para esquerda\n");
-    }
-
-    printf("\nMovimentação concluída!\n");
+    // Cavalo
+    movimentoCavalo();
 
     return 0;
 }
